@@ -137,7 +137,7 @@ class SettingsViewController: TableViewController {
       }
 
       switch BraveVPN.vpnState {
-      case .notPurchased, .expired, .purchased:
+      case .notPurchased, .expired:
         return true
       case .installed:
         return false
@@ -460,7 +460,7 @@ class SettingsViewController: TableViewController {
 
     let (text, color) = { () -> (String, UIColor) in
       switch BraveVPN.vpnState {
-      case .notPurchased, .purchased:
+      case .notPurchased:
         return ("", UIColor.black)
       case .installed(let enabled):
         if enabled {
@@ -479,7 +479,7 @@ class SettingsViewController: TableViewController {
 
         let vc = { () -> UIViewController? in
           switch BraveVPN.vpnState {
-          case .notPurchased, .purchased, .expired:
+          case .notPurchased, .expired:
             return BraveVPN.vpnState.enableVPNDestinationVC
           case .installed:
             let vc = BraveVPNSettingsViewController()
@@ -720,7 +720,7 @@ class SettingsViewController: TableViewController {
     let state = BraveVPN.vpnState
 
     switch state {
-    case .notPurchased, .purchased, .expired:
+    case .notPurchased, .expired:
       guard let vc = state.enableVPNDestinationVC else { return }
       navigationController?.pushViewController(vc, animated: true)
     case .installed:
