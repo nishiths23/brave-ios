@@ -2300,6 +2300,10 @@ extension BrowserViewController: TabDelegate {
         tab: tab,
         rewards: rewards),
       name: BraveTalkScriptHandler.name(), contentWorld: .page)
+    
+    tab.addContentScript(BraveSkusScriptHandler(tab: tab),
+                         name: BraveSkusScriptHandler.name(),
+                         contentWorld: .page)
 
     tab.addContentScript(ResourceDownloadManager(tab: tab), name: ResourceDownloadManager.name(), contentWorld: .defaultClient)
 
@@ -2478,6 +2482,10 @@ extension BrowserViewController: TabDelegate {
       return WalletProviderPermissionRequestsManager.shared.hasPendingRequest(for: selectedTabOrigin, coinType: .eth)
     }
     return false
+  }
+  
+  func showInstallVPNScreen(for credential: String) {
+    present(InstallVPNViewController(), animated: true)
   }
 }
 
