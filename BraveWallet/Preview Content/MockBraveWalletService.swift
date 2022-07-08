@@ -183,5 +183,9 @@ class MockBraveWalletService: BraveWalletBraveWalletService {
   
   func notifySignAllTransactionsRequestProcessed(_ approved: Bool, id: Int32) {
   }
+  
+  func base58Encode(_ addresses: [[NSNumber]], completion: @escaping ([String]) -> Void) {
+    completion([])
+  }
 }
 #endif

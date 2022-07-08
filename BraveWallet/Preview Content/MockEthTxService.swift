@@ -47,6 +47,10 @@ class MockTxService: BraveWalletTxService {
   func reset() {
   }
 
+  func transactionMessage(toSign coinType: BraveWallet.CoinType, txMetaId: String, completion: @escaping (BraveWallet.MessageToSignUnion?) -> Void) {
+    completion(BraveWallet.MessageToSignUnion(messageStr: "Mock transaction message"))
+  }
+  
   func transactionMessage(toSign coinType: BraveWallet.CoinType, txMetaId: String, completion: @escaping (String?) -> Void) {
     completion("Mock transaction message")
   }
