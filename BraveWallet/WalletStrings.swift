@@ -2500,5 +2500,19 @@ extension Strings {
       value: "Warning: A screenshot of your message may get backed up to a cloud file service, and be readable by any application with photos access. Brave recommends that you not save this screenshot, and delete it as soon as possible.",
       comment: "The message displayed when the user takes a screenshot of their dapp decrypt request."
     )
+    public static let createAccountAlertTitle = NSLocalizedString(
+      "wallet.createAccountAlertTitle",
+      tableName: "BraveWallet",
+      bundle: .strings,
+      value: "You don't have a %@ account",
+      comment: "The title of the alert shown when a user switches to a network they do not have an account for yet. '%@' will be replaced with a network name such as 'Solana' or 'Filecoin'."
+    )
+    public static let createAccountAlertMessage = NSLocalizedString(
+      "wallet.createAccountAlertMessage",
+      tableName: "BraveWallet",
+      bundle: .strings,
+      value: "Create one now?",
+      comment: "The message of the alert shown when a user switches to a network they do not have an account for yet."
+    )
   }
 }
